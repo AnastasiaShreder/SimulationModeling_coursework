@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-image: url('/backgroundAutoMode.jpg')" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.StepModeFormController">
+    <children>
+<!--            <columnConstraints>-->
+<!--                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />-->
+<!--                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />-->
+<!--                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />-->
+<!--            </columnConstraints>-->
+<!--            <rowConstraints>-->
+<!--                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />-->
+<!--                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />-->
+<!--            </rowConstraints>-->
+<!--            <children>-->
+                <TableView fx:id="sourcesActionsTable" layoutX="71.0" layoutY="229.0" prefHeight="362.0" prefWidth="237.0">
+                    <columns>
+                        <TableColumn fx:id="sourcesNumberColumn" prefWidth="115.00001525878906" text="Source№" />
+                        <TableColumn fx:id="sourcesRequestNumberColumn" prefWidth="120.0" text="Request№" />
+                    </columns>
+                </TableView>
+                <TableView fx:id="bufferActionsTable" layoutX="356.0" layoutY="229.0" prefHeight="362.0" prefWidth="312.0" GridPane.columnIndex="1">
+                    <columns>
+                        <TableColumn fx:id="bufferCellsNumberColumn" prefWidth="105.79998779296875" text="Position№" />
+                        <TableColumn fx:id="bufferRequestNumberColumn" minWidth="0.0" prefWidth="99.80001831054688" text="Request№" />
+                        <TableColumn fx:id="bufferRequestPriorityColumn" prefWidth="108.79998779296875" text="Priority" />
+                    </columns>
+                </TableView>
+                <TableView fx:id="devicesActionsTable" layoutX="714.0" layoutY="229.0" prefHeight="362.0" prefWidth="238.0" GridPane.columnIndex="2">
+                    <columns>
+                        <TableColumn fx:id="devicesNumberColumn" prefWidth="118.0" text="Device№" />
+                        <TableColumn fx:id="deviceRequestNumberColumn" prefWidth="116.4000244140625" text="Request№" />
+                        <TableColumn fx:id="deviceRequestPriorityColumn" prefWidth="192.39996337890625" text="Priority" />
+                    </columns>
+                </TableView>
+      <HBox layoutX="83.0" layoutY="673.0" prefHeight="72.0" style="-fx-border-color: #f0df4e; -fx-border-width: 5; -fx-border-radius: 20;">
+         <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="30.0" spacing="20.0">
+                            <children>
+                                <Label prefHeight="22.0" text="Current time" textFill="#f0df4e">
+                                    <font>
+                                        <Font name="Comic Sans MS Bold Italic" size="15.0" />
+                                    </font>
+                  </Label>
+                                <Label fx:id="currentTimeLabel" prefHeight="23.0" prefWidth="157.0" text="0" textFill="#f0df4e">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                     </font></Label>
+                            </children>
+                            <padding>
+                                <Insets left="60.0" />
+                            </padding>
+            </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="231.0">
+                            <children>
+                                <Label prefHeight="22.0" prefWidth="38.0" text="Step" textFill="#f0df4e">
+                                    <font>
+                                        <Font name="Comic Sans MS Bold Italic" size="15.0" />
+                                    </font>
+                  </Label>
+                                <Label fx:id="stepLabel" prefHeight="23.0" prefWidth="55.0" text="0" textFill="#f0df4e">
+                                    <HBox.margin>
+                                        <Insets left="73.0" />
+                                    </HBox.margin>
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                     </font>
+                  </Label>
+                            </children>
+                            <padding>
+                                <Insets left="60.0" />
+                            </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="62.0" prefWidth="282.0">
+                            <children>
+                                <Label prefHeight="22.0" prefWidth="112.0" text="Total steps" textFill="#f0df4e">
+                                    <font>
+                                        <Font name="Comic Sans MS Bold Italic" size="15.0" />
+                                    </font>
+                  </Label>
+                                <Label fx:id="numberOfStepsLabel" prefHeight="23.0" prefWidth="57.0" text="0" textFill="#f0df4e">
+                                    <HBox.margin>
+                                        <Insets left="20.0" />
+                                    </HBox.margin>
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="16.0" />
+                     </font>
+                  </Label>
+                            </children>
+                            <padding>
+                                <Insets left="60.0" />
+                            </padding>
+                        </HBox>
+         </children>
+      </HBox>
+                  <HBox alignment="CENTER" layoutX="285.0" layoutY="16.0" prefHeight="100.0" prefWidth="449.0" spacing="30.0">
+                      <children>
+                          <Label text="Step№" textFill="#f0df4e">
+                              <font>
+                                  <Font name="Comic Sans MS" size="14.0" />
+                              </font>
+                          </Label>
+                          <TextField fx:id="stepSnapshotTextField" />
+                          <Button fx:id="changeStepButton" mnemonicParsing="false" onAction="#onClickChangeStep" text="Ok">
+                              <font>
+                                  <Font size="14.0" />
+                              </font>
+                          </Button>
+                      </children>
+                  </HBox>
+                    <Button fx:id="stepFrowardButton" layoutX="600.0" layoutY="121.0" mnemonicParsing="false" onAction="#onClickStepForward" prefHeight="30.0" prefWidth="67.0" text="Next">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </Button>
+                  <HBox alignment="CENTER" layoutX="868.0" layoutY="14.0" prefHeight="52.0" prefWidth="89.0">
+                      <children>
+                          <Button fx:id="exitButton" mnemonicParsing="false" onAction="#onClickExitButton" prefHeight="30.0" prefWidth="63.0" text="Menu">
+                              <font>
+                                  <Font size="14.0" />
+                              </font>
+                          </Button>
+                      </children>
+                  </HBox>
+                    <Button fx:id="runButton" layoutX="461.0" layoutY="117.0" mnemonicParsing="false" onAction="#onClickRun" prefHeight="38.0" prefWidth="98.0" text="Start">
+                        <font>
+                            <Font size="17.0" />
+                        </font>
+                    </Button>
+                    <Button fx:id="stepBackwardButton" layoutX="356.0" layoutY="121.0" mnemonicParsing="false" onAction="#onClickStepBackward" prefHeight="30.0" prefWidth="67.0" text="Back">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </Button>
+      <Label layoutX="157.0" layoutY="194.0" text="Sources" textFill="#f0df4e">
+         <font>
+            <Font name="Comic Sans MS Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="484.0" layoutY="194.0" text="Buffer" textFill="#f0df4e">
+         <font>
+            <Font name="Comic Sans MS Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="802.0" layoutY="194.0" text="Devices" textFill="#f0df4e">
+         <font>
+            <Font name="Comic Sans MS Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="72.0" fitWidth="69.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@scissors.png" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="globalActionTextArea" layoutX="171.0" layoutY="614.0" prefHeight="38.0" prefWidth="683.0" />
+            </children>
+<!--    </children>-->
+</AnchorPane>

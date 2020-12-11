@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane opacity="1" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-image: url('/backgroundAutoMode.jpg');" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AutoModeFormController">
+    <children>
+        <VBox layoutX="53.0" layoutY="50.0" prefHeight="643.0" prefWidth="1159.0" spacing="40.0" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="68.0" AnchorPane.topAnchor="50.0">
+            <children>
+                <TableView fx:id="sourceTable" prefHeight="294.0" prefWidth="1159.0">
+                    <columns>
+                        <TableColumn fx:id="sourceNumberColumn" prefWidth="58.40000915527344" text="№Source" />
+                        <TableColumn fx:id="numberOfRequestsColumn" prefWidth="72.0" text="Generated" />
+                        <TableColumn fx:id="numberOfCompletedRequestsColumn" prefWidth="74.5999755859375" text="Completed" />
+                        <TableColumn fx:id="numberOfRejectedRequestsColumn" prefWidth="66.39999389648438" text="Rejected" />
+                        <TableColumn fx:id="probabilityOfFailureColumn" prefWidth="137.19998168945312" text="Probability of failure" />
+                        <TableColumn fx:id="averageTimeInSystemColumn" prefWidth="120.60006713867188" text="Av. time in system" />
+                        <TableColumn fx:id="averageTimeOfWaitingColumn" minWidth="0.0" prefWidth="124.00006103515625" text="Av. time of waiting" />
+                        <TableColumn fx:id="averageProcessTimeColumn" prefWidth="133.39996337890625" text="Av. time of execution" />
+                        <TableColumn fx:id="dispersionWaitingTimeColumn" minWidth="0.0" prefWidth="175.0" text="Dispersion (time of waiting)" />
+                        <TableColumn fx:id="dispersionProcessTimeColumn" minWidth="0.0" prefWidth="194.2000732421875" text="Dispersion (time of execution)" />
+                    </columns>
+                </TableView>
+                <TableView fx:id="deviceTable" prefHeight="305.0" prefWidth="1159.0">
+                    <columns>
+                        <TableColumn fx:id="deviceNumberColumn" prefWidth="97.19995880126953" text="№Device" />
+                        <TableColumn fx:id="timeOfWorkColumn" minWidth="0.0" prefWidth="102.00003051757812" text="Working time" />
+                        <TableColumn fx:id="exploitationRateColumn" prefWidth="119.59994506835938" text="Exploitation rate" />
+                    </columns>
+                </TableView>
+            </children></VBox>
+      <Label layoutX="42.0" layoutY="28.0" prefHeight="18.0" prefWidth="162.0" text="Source statistics" textFill="#f0df4e">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="42.0" layoutY="361.0" prefHeight="18.0" prefWidth="162.0" text="Device statistics" textFill="#f0df4e">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="17.0" />
+         </font>
+      </Label>
+      <Button fx:id="exitButton" layoutX="1212.0" layoutY="16.0" mnemonicParsing="false" onAction="#onClickExitButton" text="Menu" />
+      <Button fx:id="startButton" layoutX="1149.0" layoutY="16.0" mnemonicParsing="false" onAction="#onClickRun" prefHeight="26.0" prefWidth="55.0" text="Start" />
+    </children>
+</AnchorPane>
